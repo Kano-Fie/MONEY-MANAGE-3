@@ -1,0 +1,35 @@
+{% extends 'layout.html' %} 
+{% block body %}
+<div class="container text-light text-center custom-bg">
+    <h1 class="mb-4">Aplikasi Pencatat Pengeluaran</h1>
+    <h5>Silahkan Login ke akun Anda setelah mendaftar.</h5>
+    <img src="../static/LOGO AKID_putih.png" alt="Deskripsi Gambar" width="130" height="180" style="margin-top: 40px; margin-bottom: 40px;">
+	<h5>Anda dapat melakukan beberapa hal seperti:</h5>
+    <div class="row mt-5">
+        <div class="col-md-4 mb-4">
+            <div class="card bg-dark text-light border-0" style="margin-top: 20px;"> <!-- border-0 untuk menghilangkan border -->
+                <div class="card-body">
+                    <h5 class="card-title">Tambah Transaksi</h5>
+                    <p class="card-text">Anda dapat menuliskan transaksi apa saja yang Anda lakukan.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card bg-dark text-light border-0" style="margin-top: 20px;"> <!-- border-0 untuk menghilangkan border -->
+                <div class="card-body">
+                    <h5 class="card-title">Riwayat Transaksi</h5>
+                    <p class="card-text">Lihat semua transaksi yang telah Anda lakukan.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card bg-dark text-light border-0" style="margin-top: 20px;"> <!-- border-0 untuk menghilangkan border -->
+                <div class="card-body">
+                    <h5 class="card-title">Statistik Pengeluaran</h5>
+                    <p class="card-text">Analisis pengeluaran Anda dengan grafik dan statistik.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

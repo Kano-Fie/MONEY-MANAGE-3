@@ -1,28 +1,7 @@
-CREATE DATABASE
-IF NOT EXISTS `tracker`;
+CREATE DATABASE IF NOT EXISTS `tracker`;
 USE `tracker`;
 
-DROP TABLE IF EXISTS `transactions`;
-CREATE TABLE `transactions`
-(
-  `id` int NOT NULL AUTO_INCREMENT,
-  `user_id` int DEFAULT NULL,
-  `amount` int NOT NULL DEFAULT '0',
-  `description` varchar
-(255) DEFAULT NULL,
-  `category` varchar (255) DEFAULT NULL,
-  `date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY
-(`id`),
-  KEY `user_id`
-(`user_id`),
-  CONSTRAINT `transactions_ibfk_1` FOREIGN KEY
-(`user_id`) REFERENCES `users`
-(`id`) ON
-DELETE CASCADE ON
-UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
+-- Create the users table first
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users`
 (
@@ -33,5 +12,20 @@ CREATE TABLE `users`
   `username` varchar(100) DEFAULT NULL,
   `password` varchar(100) DEFAULT NULL,
   `role` varchar(100) DEFAULT 'user',
-  PRIMARY KEY(`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Now create the transactions table
+DROP TABLE IF EXISTS `transactions`;
+CREATE TABLE `transactions`
+(
+  `id` int NOT NULL AUTO_INCREMENT,
+  `user_id` int DEFAULT NULL,
+  `amount` int NOT NULL DEFAULT '0',
+  `description` varchar(255) DEFAULT NULL,
+  `category` varchar(255) DEFAULT NULL,
+  `date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`),
+  CONSTRAINT `transactions_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
